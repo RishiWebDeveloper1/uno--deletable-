@@ -1,0 +1,23 @@
+// C++ code
+//
+
+int ldr = A0;
+int v = 0;
+int bulb = 7;
+
+void setup()
+{
+  pinMode(bulb, OUTPUT);
+  pinMode(ldr, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  v = analogRead(ldr);
+  Serial.println(v);
+  if(analogRead(ldr) > 500)
+	digitalWrite(bulb, 0);
+  else
+    digitalWrite(bulb, 1);
+}

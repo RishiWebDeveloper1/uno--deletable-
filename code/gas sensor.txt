@@ -1,0 +1,25 @@
+int const GAS_PIN = A1;
+int LED_GREEN = 7;
+int LED_YELLOW = 6;
+int LED_RED1 = 5;
+int LED_RED2 = 4;
+
+void setup()
+{
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_YELLOW, OUTPUT);
+  pinMode(LED_RED1, OUTPUT);
+  pinMode(LED_RED2, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int value = analogRead(GAS_PIN);
+  value = map(value, 300, 750, 0, 100);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_YELLOW, value >=30? HIGH:LOW);
+  digitalWrite(LED_RED1, value >=50? HIGH:LOW);
+  digitalWrite(LED_RED2, value >=80? HIGH:LOW);
+  delay(250);
+}

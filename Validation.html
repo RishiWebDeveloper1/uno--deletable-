@@ -1,0 +1,52 @@
+    <title>Validation Form</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        form {
+            width: 100%;
+            height: 100dvh;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .TextBox {
+            width: 250px;
+            height: 5px;
+            padding: 10px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:TextBox ID="TextBox1" class="TextBox" runat="server" style="z-index: 1; left: 320px; top: 50px; position: absolute" OnTextChanged="TextBox1_TextChanged" BorderColor="Black" BorderStyle="Groove" Font-Bold="True" Font-Names="Georgia" Font-Size="Medium" ForeColor="Black"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" class="TextBox" runat="server" style="z-index: 1; left: 320px; top: 100px; position: absolute"></asp:TextBox>
+        <asp:TextBox ID="TextBox3" class="TextBox" runat="server" style="z-index: 1; left: 320px; top: 150px; position: absolute"></asp:TextBox>
+        <asp:TextBox ID="TextBox4" class="TextBox" runat="server" style="z-index: 1; left: 320px; top: 200px; position: absolute; " OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="TextBox5" class="TextBox" runat="server" style="z-index: 1; left: 320px; top: 250px; position: absolute"></asp:TextBox>
+        <asp:TextBox ID="TextBox6" class="TextBox" runat="server" style="z-index: 1; left: 320px; top: 300px; position: absolute" OnTextChanged="TextBox6_TextChanged"></asp:TextBox>
+
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" style="z-index: 1; left: 330px; top: 139px; position: absolute" ControlToCompare="TextBox1" ControlToValidate="TextBox2"></asp:CompareValidator>
+        <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" style="z-index: 1; left: 331px; top: 190px; position: absolute; right: 894px;" ControlToValidate="TextBox4" MaximumValue="200" MinimumValue="100" Type="Integer"></asp:RangeValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" style="z-index: 1; left: 329px; top: 284px; position: absolute; height: 20px;" ControlToValidate="TextBox5" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox6" ErrorMessage="RequiredFieldValidator" style="z-index: 1; left: 329px; top: 339px; position: absolute"></asp:RequiredFieldValidator>
+        <asp:Button ID="Button1" runat="server" style="z-index: 1; left: 331px; top: 413px; position: absolute" Text="Submit" />
+    </form>
+</body>
+
+
+
+<!--  
+<appSettings>
+	  <add key="validationSettings:UnobtrusiveValidationMode" value="none" />
+</appSettings>
+-->
